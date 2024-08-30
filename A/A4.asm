@@ -13,3 +13,4 @@
 #	      -Guarda t1 en a1.
 # 	      -a7 = 0x0000000a
 #   	      -ecall ???
+  #     Forma usual de terminar un programa 

@@ -12,7 +12,7 @@ valor: .word 0
 #Basicamente: valor es una constante en 0.
 #Carga los registros t0, t1 y t2.
 #Guarda las palabra t0 en valor, 
-	#guarda algo temporario en t6.
+	#guarda algo temporario en t6. (IDK WHAT)
 #Lee la direccion de valor en a7.
 #Guarda las palabra t1 en a7 + 4. 
 #		    t2 en a7 + 8.
