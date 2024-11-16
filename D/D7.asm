@@ -1,9 +1,9 @@
 .data
-	cadena: .ascii "ORGANIZACION DE LAS COMPUTADORAS CON RISC V"
+	cadena: .ascii "O V"
 	.align 2
 	cant: .byte -1 #última posición vacia...
 	.align 2
-	caract: .ascii "A"
+	caract: .ascii " "
 
 .text
   la a0,cadena
