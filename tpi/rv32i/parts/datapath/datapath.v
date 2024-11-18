@@ -6,6 +6,7 @@
 `include "parts/datapath/componentes/SE/SE.v"
 `include "parts/datapath/componentes/ALU/ALU.v"
 `include "parts/datapath/componentes/DM/DM.v"
+`include "parts/datapath/componentes/Mux4x1/Mux4x1.v"
 
 
 
@@ -15,7 +16,7 @@ module datapath (
     
     //inputs
     input wire pcSrc,
-    input wire resSrc,
+    input [1:0] resSrc,
     input wire memWrite,
     input [2:0] ALUControl,
     input aluSrc,
@@ -49,6 +50,7 @@ wire[31:0] inmExt;
 wire[31:0] srcB;
 
 wire[31:0] ALUResult;
+wire aux_zero;
 
 wire[31:0] ReadData;
 
@@ -132,7 +134,8 @@ ALU arithmeticLogicUnit(
     .srcA(rd1),
     .srcB(srcB),
     .ALUControl(ALUControl),
-    .result(ALUResult)
+    .result(ALUResult),
+    .zero(aux_zero)
 );
 
 //Memoria de Datos
@@ -147,11 +150,12 @@ DM dataMemory(
 
 //Result Mux
 //is it wrong?
-Mux2x1 resMux(
+Mux4x1 resMux(
 //    .e1(ReadData),
 //    .e2(ALUResult),
     .e1(ALUResult),
     .e2(ReadData),
+    .e3(pcPlus4),
     .sel(resSrc),
     .salMux(result)
 );
@@ -161,6 +165,6 @@ Mux2x1 resMux(
 assign f7 = inst[30];  //5 de [31:25]
 assign f3 = inst[14:12];
 assign op = inst[6:0];
-assign zero = 0;
+assign zero = aux_zero;
     
 endmodule

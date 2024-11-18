@@ -6,7 +6,7 @@
 
 module rv32i_tb();
 
-parameter DURATION = 10;
+parameter DURATION = 100;
 
 reg clk = 0;
 always #0.5 clk = ~clk;

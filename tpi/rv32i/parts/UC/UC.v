@@ -9,7 +9,7 @@ module UC (
     input wire zero,
     // output [0:9] salUC
     output wire pcSrc,
-    output wire resSrc,
+    output [1:0] resSrc,
     output wire memWrite,
     output [2:0] ALUControl,
     output aluSrc,
@@ -18,7 +18,7 @@ module UC (
     output wire branch
 );
 
-reg aux_pcSrc = 0;
+//reg aux_pcSrc = 0;
 wire [1:0] aluOp;
 
 mainDeco MD(
@@ -26,6 +26,7 @@ mainDeco MD(
     .branch(branch),
     .resSrc(resSrc), //warning... expectes 2bits gots 1...
                     //it never goes beyond 1 bit tho...
+                    // now with jal it does..
     .memWrite(memWrite),
     .aluSrc(aluSrc),
     .inmSrc(inmSrc),
@@ -42,9 +43,9 @@ aluDeco AD(
 );
 
 always @(*) begin
-    aux_pcSrc = zero & branch;
+    //aux_pcSrc = zero & branch;
 end
 
-assign pcSrc = aux_pcSrc;
+assign pcSrc = (zero & branch) | resSrc[1];
 
 endmodule

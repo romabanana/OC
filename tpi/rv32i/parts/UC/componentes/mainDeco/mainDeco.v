@@ -28,7 +28,7 @@ reg [1:0] aux_aluOp;
 
 always @(*) begin
     case (op)
-        3:
+        3: //lw
             begin
                 aux_regWrite = 1;
                 aux_inmSrc = 00;
@@ -38,7 +38,7 @@ always @(*) begin
                 aux_branch = 0;
                 aux_aluOp = 2'b00;
             end
-        35:
+        35: //sw
             begin
                 aux_regWrite = 0;
                 aux_inmSrc = 2'b01;
@@ -48,7 +48,7 @@ always @(*) begin
                 aux_branch = 0;
                 aux_aluOp = 2'b00;
             end
-        51:
+        51: //R
             begin
                 aux_regWrite = 1;
                 aux_inmSrc = 2'bx;
@@ -58,7 +58,7 @@ always @(*) begin
                 aux_branch = 0;
                 aux_aluOp = 2;
             end
-        99:
+        99: //beq
             begin
                 aux_regWrite = 0;
                 aux_inmSrc = 2'b10;
@@ -67,6 +67,26 @@ always @(*) begin
                 aux_resSrc = 1'bx;
                 aux_branch = 1;
                 aux_aluOp = 2'b01;
+            end
+        19: //I
+            begin
+                aux_regWrite = 1;
+                aux_inmSrc = 2'b00;
+                aux_aluSrc = 1;
+                aux_memWrite = 0;
+                aux_resSrc = 1'b0;
+                aux_branch = 0;
+                aux_aluOp = 2'b10;
+            end
+        111: //j
+            begin
+                aux_regWrite = 0; //1
+                aux_inmSrc = 2'b11;
+                aux_aluSrc = 1'bx;
+                aux_memWrite = 0;
+                aux_resSrc = 2'b10;
+                aux_branch = 0;
+                aux_aluOp = 2'bxx;
             end
         default:
            begin

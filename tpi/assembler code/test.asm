@@ -1,7 +1,10 @@
 .text
 	lw t1, 0
-	sw t1, 4
-	lw t2, 4
-	add t1, t2, t1
-	sw t1, 8
-	
+	addi t2, t1, 2
+	jal t3, exit
+	addi t2, t1, 2
+	addi t2, t1, 2
+	addi t2, t1, 2
+	addi t2, t1, 2
+	addi t2, t1, 2
+	exit:

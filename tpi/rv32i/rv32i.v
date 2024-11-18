@@ -16,7 +16,7 @@ wire zero;
 
 //UC->DP
 wire pcSrc;
-wire resSrc;
+wire [1:0] resSrc;
 wire memWrite;
 wire [2:0] ALUControl;
 wire aluSrc;

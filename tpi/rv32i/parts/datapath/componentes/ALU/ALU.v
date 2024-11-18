@@ -2,7 +2,8 @@ module ALU (
     input [31:0] srcA,
     input [31:0] srcB,
     input [2:0] ALUControl,
-    output [31:0] result
+    output [31:0] result,
+    output wire zero
 );
 
 reg [31:0] aux;
@@ -40,6 +41,7 @@ always @(*) begin
     endcase
 end
 
+assign zero = (aux == 0) ? 1: 0; /// usara el lsb?
 assign result = aux;
 
 endmodule

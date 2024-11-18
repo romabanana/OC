@@ -16,7 +16,7 @@ initial begin
     for (i = 0; i<32; i=i+1) begin
         mem[i] = 0;
     end
-    mem[0] = 10;
+
 end
 
 always @(posedge clk ) begin
