@@ -2,6 +2,7 @@
 
 module PC (
     input wire clk,
+    input wire reset,
     input [31:0] pcNext,
     output [31:0] pc
 );
@@ -14,7 +15,15 @@ initial begin
 end
     
 always @(posedge clk) begin
-    aux_pc <= pcNext;
+  if (reset) 
+    begin
+      aux_pc = 0;
+    end
+  else
+    begin
+      aux_pc <= pcNext;
+    end
+  
 end
 
 assign pc = aux_pc;

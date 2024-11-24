@@ -4,7 +4,8 @@
 
 module rv32i (
     //clk
-    input wire clk
+    input wire clk,
+    input wire reset
 );
 
 ////wires
@@ -26,6 +27,7 @@ wire branch;
 
 datapath dataPath(
     .clk(clk),
+    .reset(reset),
     //inputs
     .pcSrc(pcSrc),
     .resSrc(resSrc),

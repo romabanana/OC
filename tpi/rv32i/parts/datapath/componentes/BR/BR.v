@@ -11,18 +11,17 @@ module BR (
     );
 
 reg [31:0] mem [31:0];
-integer i;
-
 initial begin
-    for (i = 0; i<32; i=i+1) begin
-        mem[i] = 0;
-    end
+  mem[0] = 0; //zero
 end
 
 always @(posedge clk ) begin
     if(we)
     begin
-        mem[a3] <= wd3;
+      if(a3!=0) //zero no se puede sobrescribir
+        begin
+          mem[a3] <= wd3;
+        end
     end
 end
 

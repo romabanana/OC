@@ -11,11 +11,12 @@ parameter DURATION = 100;
 reg clk = 0;
 always #0.5 clk = ~clk;
 
-
+reg reset;
 
 rv32i UUT (
-          .clk(clk)
-         );
+          .clk(clk),
+          .reset(reset) 
+        );
 
 integer i;
 
@@ -23,7 +24,7 @@ initial begin
 
   $dumpfile(`DUMPSTR(`VCD_OUTPUT));
   $dumpvars(0, rv32i_tb);
-
+  reset = 0;
 
    #(DURATION) $display("End of simulation");
   $finish;

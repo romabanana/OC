@@ -42,10 +42,6 @@ aluDeco AD(
     .ALUControl(ALUControl)
 );
 
-always @(*) begin
-    //aux_pcSrc = zero & branch;
-end
-
 assign pcSrc = (zero & branch) | resSrc[1];
 
 endmodule

@@ -13,7 +13,7 @@
 module datapath (
     ///clk
     input wire clk,
-    
+    input wire reset,    
     //inputs
     input wire pcSrc,
     input [1:0] resSrc,
@@ -71,6 +71,7 @@ Mux2x1 muxPcSrc(
 
 PC programCounter(
     .clk(clk),
+    .reset(reset),
     .pcNext(pcNext),
     .pc(pc)
 );

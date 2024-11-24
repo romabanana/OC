@@ -10,39 +10,7 @@ module IM (
 reg [31:0] imem [31:0];
 
 initial begin
-//test lw, sw, add
-/*  imem[0] = 32'h00002303;
-  imem[4] = 32'h00602223;
-  imem[8] = 32'h00402383;
-  imem[12] = 32'h00638333;
-  imem[16] = 32'h00602423;
-*/ 
-//test beq
-/*
-imem[0] = 32'h00002303; //	lw t1, 0
-imem[4] = 32'h00402383; //	lw t2, 4
-imem[8] = 32'h00802583; //	lw a1,  // first:
-imem[12] = 32'h00b30333; //	add t1, t1, a1
-imem[16] = 32'hfe730ee3; //	beq t1, t2, first
-imem[20] = 32'h006005b3; // add a1, zero, t1 
-*/
-//test addi
-/*
-imem[0] = 32'h00002303; //lw t1, 0
-imem[4] = 32'h00230393; //addi t2, t1, 2
-*/
-//jal test
-/*
-imem[0] = 32'h00002303; //lw t1, 0
-imem[4] = 32'h00230393; //addi t2, t1, 2
-imem[8] = 32'h01800e6f; //jal t3, exit
-imem[12] = 32'h00230393; //addi t2, t1, 2
-imem[16] = 32'h00230393; //addi t2, t1, 2
-imem[20] = 32'h00230393; //addi t2, t1, 2
-imem[24] = 32'h00230393; //addi t2, t1, 2
-imem[28] = 32'h00230393; //addi t2, t1, 2
-                        //exit:
-*/
+
 imem[0]   = 32'h00300413;
 imem[1]   = 32'h00100493;
 imem[2]   = 32'h01000913;

@@ -53,13 +53,13 @@ always @(*) begin
                         end
                     default: 
                         begin
-                            aux_ALUControl = 3'bxxx; //fail..
+                            aux_ALUControl = 3'b100; //fail..
                         end
                 endcase
             end
         default: 
             begin
-                aux_ALUControl = 3'bxxx; //fail..
+                aux_ALUControl = 3'b100; //fail..
             end
     endcase
 end

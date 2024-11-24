@@ -36,7 +36,7 @@ always @(*) begin
             end    
         default: 
             begin
-                aux = 32'bx;
+                aux = 32'b0;
             end
     endcase
 end
