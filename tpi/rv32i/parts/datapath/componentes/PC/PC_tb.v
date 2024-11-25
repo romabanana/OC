@@ -12,10 +12,13 @@ reg clk = 0;
 always #0.5 clk = ~clk;
 
 reg[31:0] pcNext;
+reg reset;
 wire[31:0] pc;
+
 
 PC UUT (
           .clk(clk),
+          .reset(reset),
           .pcNext(pcNext),
           .pc(pc)
          );
@@ -29,6 +32,7 @@ initial begin
 
   for (i=0; i<10; i=i+1)
   begin
+    reset = 0;
     $display ("Current loop # %0d", i);
     $display ("Current loop # %0b", i);
     #1

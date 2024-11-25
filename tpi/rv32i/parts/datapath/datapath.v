@@ -107,7 +107,7 @@ BR registerBank(
 //Extension de Signo
 
 SE signExtension(
-    .inm(inst),
+    .inm(inst[31:7]), //ignoramos op
     .src(inmSrc),
     .inmExt(inmExt)
 );

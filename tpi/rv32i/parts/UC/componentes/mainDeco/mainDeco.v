@@ -80,7 +80,7 @@ always @(*) begin
             end
         111: //j
             begin
-                aux_regWrite = 0; //1
+                aux_regWrite = 1; //1
                 aux_inmSrc = 2'b11;
                 aux_aluSrc = 1'bx;
                 aux_memWrite = 0;

@@ -44,6 +44,6 @@ imem[29] = 32'h00802383;
 
 end
 
-assign inst = imem[adressIM/4]; 
+assign inst = imem[adressIM[31:2]];  //shift = /4
     
 endmodule

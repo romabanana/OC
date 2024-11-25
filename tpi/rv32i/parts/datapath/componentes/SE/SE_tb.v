@@ -11,7 +11,7 @@ parameter DURATION = 10;
 reg clk = 0;
 always #0.5 clk = ~clk;
 
-reg[31:0] inm;
+reg[24:0] inm;
 reg [1:0] src;
 wire[31:0] inmExt;
 
