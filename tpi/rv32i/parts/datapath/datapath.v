@@ -13,7 +13,8 @@
 module datapath (
     ///clk
     input wire clk,
-    input wire reset,    
+    input wire reset,
+    input [31:0] pcInput,    
     //inputs
     input wire pcSrc,
     input [1:0] resSrc,
@@ -72,6 +73,7 @@ Mux2x1 muxPcSrc(
 PC programCounter(
     .clk(clk),
     .reset(reset),
+    .pcInput(pcInput),
     .pcNext(pcNext),
     .pc(pc)
 );
@@ -87,7 +89,7 @@ Adder apc(
 //Memoria de Intrucciones
 
 IM instructionMemory(
-    .adressIM(pc),
+    .adressIM(pc[31:2]),
     .inst(inst)
 );
 

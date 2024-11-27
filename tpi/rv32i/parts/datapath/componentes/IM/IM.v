@@ -3,7 +3,7 @@
 module IM (
     //input [4:0] adressIM,
     
-    input [31:0] adressIM, //pc
+    input [29:0] adressIM, //pc shifteado
     output [31:0] inst
 );
 
@@ -44,6 +44,6 @@ imem[29] = 32'h00802383;
 
 end
 
-assign inst = imem[adressIM[31:2]];  //shift = /4
+assign inst = imem[adressIM];  
     
 endmodule

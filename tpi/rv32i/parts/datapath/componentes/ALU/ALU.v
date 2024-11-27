@@ -41,7 +41,7 @@ always @(*) begin
     endcase
 end
 
-assign zero = (aux == 0) ? 1: 0; /// usara el lsb?
+assign zero = (aux == 0) ? 1: 0; /// usara el lsb?... es 0 bobo
 assign result = aux;
 
 endmodule

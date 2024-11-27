@@ -10,8 +10,6 @@ module DM (
 );
 
 reg [31:0] mem [31:0];
-integer i;
-
 
 always @(posedge clk ) begin
     if(we)
